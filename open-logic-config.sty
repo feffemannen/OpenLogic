@@ -35,6 +35,14 @@
 
 \olgreekformulas
 
+% Greek symbols: prefer varphi and varepsilon
+
+\let\oldphi\phi
+\let\phi\varphi
+
+\let\oldepsilon\epsilon
+\let\epsilon\varepsilon
+
 % Logical symbols
 % ---------------
 
@@ -109,13 +117,17 @@
 % `\boldsymbol{\exists}` for boldface, or redefine appropriately if
 % you want parentheses around $\exists x$.
 
-\DeclareDocumentCommand \lexists { o o } {
-    \IfNoValueTF {#1} 
-        { \exists }    % no arguments
-        { \exists #1 } % one argument: variable
+\DeclareDocumentCommand \lexists { t{!} o o } {
+    \exists 
+    \IfBooleanTF {#1} 
+        \bang    % unique
+        \relax % not unique
     \IfNoValueTF {#2} 
+        \relax     % no arguments
+        { #2 } % one argument: variable
+    \IfNoValueTF {#3} 
         \relax
-        { \, #2 }      % two arguments: space and matrix
+        { \, #3 }      % two arguments: space and matrix
 }
 
 % - The universal quantifier is `\lforall`.
@@ -798,6 +810,17 @@
 
 \DeclareDocumentCommand \Setabs { m m }{\{ #1 : #2 \}}
 
+% - Fregean extensions: Use `\fregeext{x}{!A(x)}` to produce
+%   $\epsilon x\, !A(x)$.
+
+\DeclareDocumentCommand \fregeext { m m }{\oldepsilon #1 \, #2 }
+
+% - Fregean number: Use `\fregenum{x}{!A(x)}` to produce 
+%   $\# x\, !A(x)$.
+
+\DeclareDocumentCommand \fregenum { m m }{\# #1 \, #2 }
+
+
 % - `\Pow{X}`: Power set, produces $\wp(X)$
 
 \DeclareDocumentCommand \Pow { m }{\wp(#1)}
@@ -830,7 +853,7 @@
 % - `\cardless{X}{Y}`: X is smaller than Y
 \DeclareDocumentCommand \cardless { m m } {#1 \prec #2}
 
-% - `\cardle{X}{Y}`: X is equinumerous with Y
+% - `\cardeq{X}{Y}`: X is equinumerous with Y
 \DeclareDocumentCommand \cardeq { m m } {#1 \approx #2}
 
 % - `\tuple{x,y}`: pairs, tuples, sequences
@@ -865,6 +888,9 @@
 
 % - Integers: `\Int`
 \DeclareDocumentMacro \Int {\mathbb{Z}}
+
+% - Positive integers: `\PosInt`
+\DeclareDocumentMacro \PosInt {\mathbb{Z}^+}
 
 % - Real numbers: `\Real`
 \DeclareDocumentMacro \Real {\mathbb{R}}
@@ -1068,7 +1094,71 @@
         { \mathrm{Sent}({\Lang #1}) }
 }
 
+% Additional set theory stuff
+% ================
+% From Tim Button's Open Set Theory
 
+\DeclareDocumentMacro \unitline {\text{L}}
+\DeclareDocumentMacro \unitsquare {\text{S}}
+\newcommand{\onesphere}{\mathbf{S}}
+\newcommand\rotationsgroup{R}
+
+\DeclareDocumentCommand \cardneq { m m } {#1 \not\approx #2}
+\DeclareDocumentCommand \cardnless { m m } {#1 \npreceq #2}
+\DeclareDocumentCommand \ordeq { m m } {#1 \cong #2}
+\DeclareDocumentCommand \ordneq { m m } {#1 \ncong #2}
+\DeclareDocumentCommand \funimage { m m } {#1[#2]}
+
+\newcommand\stageshier{\emph{Stages-are-key}}
+\newcommand\stagesord{\emph{Stages-are-ordered}}
+\newcommand\stagesacc{\emph{Stages-accumulate}}
+\newcommand\stagessucc{\emph{Stages-keep-going}}
+\newcommand\stagesinf{\emph{Stages-hit-infinity}}
+\newcommand\limofsize{\emph{Limitation-of-size}}
+\newcommand\stagesinex{\emph{Stages-are-inexhaustible}}
+\newcommand\stagescofin{\emph{Stages-are-super-cofinal}}
+
+\usetikzlibrary{lindenmayersystems}
+\pgfdeclarelindenmayersystem{Hilbert curve}{
+	\rule{L -> +RF-LFL-FR+}
+	\rule{R -> -LF+RFR+FL-}}
+
+\newcommand\closureofunder[2]{\mathrm{clo}_{#1}(#2)}
+\newcommand\Closureofunder[2]{\mathrm{Clo}_{#1}(#2)}
+\newcommand\equivrep[2]{[#1]_{#2}}
+\newcommand\equivclass[2]{#1/{_{#2}}}
+\newcommand\Intequiv{\sim}
+\newcommand\Ratequiv{\backsim}
+\newcommand\Realequiv{\Bumpeq}
+\newcommand\funrestrictionto[2]{#1\mathord{\restriction}_{#2}}
+\newcommand\isomorphic{\cong}
+\newcommand\nisomorphic{\ncong}
+\newcommand*\bang{\text{\textnormal{\string!}}}
+\newcommand\precdot{\mathrel{\prec{\mkern -12mu \cdot}}}
+\newcommand\disjointsum{\sqcup}
+\newcommand\ordtype[1]{\mathrm{ord}(#1)}
+\newcommand\ordsucc[1]{#1^{+}}
+\newcommand\cardsucc[1]{#1^{\oplus}}
+\newcommand\rlexless{\mathrel{\sphericalangle}}
+\newcommand\canonord\lhd
+\newcommand\ordplus{+}
+\newcommand\ordtimes{\cdot}
+\newcommand\ordexpo[2]{#1^{(#2)}}
+\newcommand\cardplus{\oplus}
+\newcommand\cardtimes{\otimes}
+\newcommand\cardexpo[2]{#1^{#2}}
+\newcommand\funfromto[2]{{}^{#1}{#2}}
+\newcommand\setrank[1]{\mathrm{rank}(#1)}
+\DeclareMathOperator*{\supstrict}{\mathrm{lsub}}
+\newcommand\trcl[1]{\mathrm{trcl}(#1)}
+\newcommand\ZF{\Th{ZF}}
+\newcommand\SP{\Th{SP}}
+\newcommand\ZFC{\Th{ZFC}}
+\newcommand\Z{\Th{Z}}
+\newcommand\ZFminus{\ZF^{-}}
+\newcommand\Zminus{\Z^{-}}
+
+\newcommand\cardfont[1]{\mathfrak{#1}}
 
 % Commands for uniform formulations
 % =================================
@@ -1412,3 +1502,33 @@
 
 \tagtrue{cmplCCS}
 \tagtrue{cmplMCS}
+
+% - `novice` - for material aimed at novice readers with little math
+%   background
+
+\tagtrue{novice}
+
+% - `math` - examples etc. for readers with a math background
+
+\tagtrue{math}
+
+% - `compsci` - examples etc. for readers with a CS background
+
+\tagtrue{compsci}
+
+% - `phil` - examples etc. for readers with a philosophy background
+
+\tagtrue{phil}
+
+% Colors
+% ======
+
+\colorlet{oldiagcolorA}{black}
+\colorlet{oldiagcolorB}{gray}
+\definecolor{oldiagcolorC}{HTML}{a81c21}
+\definecolor{oldiagcolorD}{HTML}{1973ba}
+\definecolor{oldiagcolorE}{HTML}{4d6f39}
+
+\settexttoken{colorC}{red}{red}
+\settexttoken{colorD}{blue}{blue}
+\settexttoken{colorE}{green}{green}
