@@ -82,10 +82,84 @@ Moreover, this parsing is \emph{unique}.
 By induction on $!A$. For instance, suppose that $!A$ has two distinct
 readings as $(!B \lif !C)$ and $(!B' \lif !C')$. Then $!B$ and $!B'$
 must be the same (or else one would be a proper initial segment of the
-other); so if the two readings of $!A$ are distinct it must be because
+other and that's not possible by \olref{prop:noinit}); 
+so if the two readings of $!A$ are distinct it must be because
 $!C$ and $!C'$ are distinct readings of the same sequence of symbols,
 which is impossible by the inductive hypothesis.
 \end{proof}
+
+\begin{explain}
+It may be worth pointing out that the unique readability is not something 
+we get for free for any inductively defined system. For example, if in the
+definition of $\Frm[L_0]$ we hadn't used parantheses the ``formula'' $!A 
+\land !B \lor !C$ would have two different parsings corresponding to $(!A 
+\land !B) \lor !C$ and $!A \land (!B \lor !C)$.
+\end{explain}
+
+\begin{explain}
+It is often useful to talk about the !!{formula}s that ``make up'' a
+given !!{formula}.  We call these its \emph{!!{subformula}s}.  Any
+!!{formula} counts as a !!{subformula} of itself; a subformula of $!A$
+other than $!A$ itself is a \emph{proper !!{subformula}}.
+\end{explain}
+
+\begin{defn}[Immediate !!^{subformula}]
+If $!A$ is !!a{formula}, the \emph{immediate !!{subformula}s}
+of $!A$ are defined inductively as follows:
+\begin{enumerate}
+\item Atomic !!{formula}s have no immediate !!{subformula}s.
+
+\tagitem{prvNot}{\indcase{!A}{\lnot !B}{The only immediate
+    !!{subformula} of $\indfrm$ is~$!B$.}}{}
+
+\item \indcase{!A}{(!B \ast !C)}{The immediate !!{subformula}s of
+  $\indfrm$ are $!B$ and $!C$ ($\ast$ is any one of the two-place
+  connectives).}
+
+\end{enumerate}
+\end{defn}
+
+\begin{defn}[Proper !!^{subformula}]
+If $!A$ is !!a{formula}, the \emph{proper !!{subformula}s}
+of $!A$ are recursively as follows:
+\begin{enumerate}
+\item Atomic !!{formula}s have no proper !!{subformula}s.
+
+\tagitem{prvNot}{\indcase{!A}{\lnot !B}{The proper !!{subformula}s of
+    $\indfrm$ are~$!B$ together with all proper !!{subformula}s
+    of~$!B$.}}{}
+
+\item \indcase{!A}{(!B \ast !C)}{The proper !!{subformula}s of
+  $\indfrm$ are $!B$, $!C$, together with all proper !!{subformula}s
+  of $!B$ and those of~$!C$.}
+\end{enumerate}
+\end{defn}
+
+\begin{defn}[!!^{subformula}]
+The !!{subformula}s of $!A$ are $!A$ itself together with all its
+proper !!{subformula}s.
+\end{defn}
+
+\begin{explain}
+Note the subtle difference in how we have defined immediate
+!!{subformula}s and proper !!{subformula}s.  In the first case, we
+have directly defined the immediate !!{subformula}s of a formula~$!A$
+for each possible form of~$!A$.  It is an explicit definition by
+cases, and the cases mirror the inductive definition of the set of
+!!{formula}s.  In the second case, we have also mirrored the way the
+set of all !!{formula}s is defined, but in each case we have also
+included the proper !!{subformula}s of the smaller !!{formula}s $!B$,
+$!C$ in addition to these !!{formula}s themselves.  This makes the
+definition \emph{recursive}.  In general, a definition of a function
+on an inductively defined set (in our case, !!{formula}s) is recursive
+if the cases in the definition of the function make use of
+the function itself. To be well defined, we must make sure, however,
+that we only ever use the values of the function for arguments that
+come ``before'' the one we are defining---in our case, when defining
+``proper !!{subformula}'' for $(!B \ast !C)$ we only use the proper
+!!{subformula}s of the ``earlier'' !!{formula}s $!B$ and $!C$.
+\end{explain}
+
 
 
 \begin{defn}[Uniform Substitution]
@@ -101,6 +175,7 @@ $\SSubst{!A}{\subst{!B_1}{\Obj p_1},\dots,\subst{!B_n}{\Obj p_n}}$.
 Give a mathematically rigorous definition of $\Subst{!A}{!B}{p}$ by
 induction.
 \end{prob}
+
 
 \end{document}
 
