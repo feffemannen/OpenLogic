@@ -30,7 +30,7 @@
 %\linespread{1.05}
 
 % e-book-friendly version:
-%\usepackage[papersize={3.6in,4.8in},hmargin=0.1in,vmargin={0.1in,0.1in}]{geometry}
+\usepackage[papersize={3.6in,4.8in},hmargin=0.1in,vmargin={0.1in,0.1in}]{geometry}
 
 \begin{document}
 
@@ -176,9 +176,9 @@ To define a derivation system for first-order logic we will use what we already 
 %\olimport*[first-order-logic/natural-deduction]{proving-things}
 \olimport*[first-order-logic/natural-deduction]{quantifier-rules}
 \olimport*[first-order-logic/natural-deduction]{proving-things-quant}
-%\olimport*[first-order-logic/natural-deduction]{proof-theoretic-notions}
-%\olimport*[first-order-logic/natural-deduction]{provability-consistency}
-%\olimport*[first-order-logic/natural-deduction]{provability-propositional}
+\olimport*[first-order-logic/natural-deduction]{proof-theoretic-notions}
+\olimport*[first-order-logic/natural-deduction]{provability-consistency}
+\olimport*[first-order-logic/natural-deduction]{provability-propositional}
 \olimport*[first-order-logic/natural-deduction]{provability-quantifiers}
 \olimport*[first-order-logic/natural-deduction]{soundness}
 \olimport*[first-order-logic/natural-deduction]{identity}
@@ -189,6 +189,37 @@ To define a derivation system for first-order logic we will use what we already 
 %\olimport*[first-order-logic/beyond]{beyond}
 
 \OLEndPartHook
+
+% PART: MODEL THEORY
+
+\cleardoublepage
+{\let\newpage\relax
+\let\clearpage\relax
+\part{Some Model Theory}
+\chapter{Basics of Model Theory}}
+
+\olimport*[model-theory/basics]{reducts-and-expansions}
+\olimport*[model-theory/basics]{substructures}
+\olimport*[model-theory/basics]{overspill}
+\olimport*[model-theory/basics]{isomorphism}
+\olimport*[model-theory/basics]{theory-of-m}
+%\olimport{partial-iso}
+%\olimport{dlo}
+%\olimport{nonstandard-arithmetic}
+\OLEndChapterHook
+
+\chapter{Models of Arithmetic}
+\olimport*[model-theory/models-of-arithmetic]{introduction}
+\olimport*[model-theory/models-of-arithmetic]{standard-models}
+\olimport*[model-theory/models-of-arithmetic]{non-standard-models}
+%\olimport{models-of-q}
+%\olimport{computable-models}
+\OLEndChapterHook
+
+%\olimport[interpolation]{interpolation}
+%\olimport[lindstrom]{lindstrom}
+\OLEndPartHook
+
 
 % PART: SECOND-ORDER LOGIC
 
