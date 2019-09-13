@@ -12,14 +12,14 @@
 
 In this section, we prove two \emph{normal form} theorems for propositional logic. These guarantee that, for any !!{formula}, there is a semantically equivalent !!{formula} in some canonical normal form. Moreover, we shall give methods for finding these normal-form equivalents.
 
-Say that a !!{formula} is in \emph{disjunctive normal form} \emph{iff} it meets all of the following conditions:
+Say that a !!{formula} is in \emph{disjunctive normal form} \emph{if} it meets all of the following conditions:
 	\begin{itemize}
 		\item No connectives occur in the !!{formula} other than negations, conjunctions and disjunctions;
 		\item Every occurrence of negation has minimal scope (i.e.\ any `$\lnot$' is immediately followed by an atomic !!{formula});
 		\item No disjunction occurs within the scope of any conjunction.
 	\end{itemize}
 Here are are some !!{formula}s in disjunctive normal form:
-	\begin{center}
+	\begin{center}git 
 		$\Obj p_0$\\
 		$(\Obj p_0 \land \Obj p_1) \lor (\Obj p_0 \land \lnot \Obj p_1)$\\
 		$(\Obj p_0 \land \Obj p_1) \lor (\Obj p_0 \land  \Obj p_1 \land \Obj p_2 \land \lnot \Obj p_3 \land \lnot !E)$\\
