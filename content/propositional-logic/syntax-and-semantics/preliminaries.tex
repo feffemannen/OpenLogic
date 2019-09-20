@@ -82,11 +82,71 @@ Moreover, this parsing is \emph{unique}.
 By induction on $!A$. For instance, suppose that $!A$ has two distinct
 readings as $(!B \lif !C)$ and $(!B' \lif !C')$. Then $!B$ and $!B'$
 must be the same (or else one would be a proper initial segment of the
-other); so if the two readings of $!A$ are distinct it must be because
+other and that's not possible by \olref{prop:noinit}); 
+so if the two readings of $!A$ are distinct it must be because
 $!C$ and $!C'$ are distinct readings of the same sequence of symbols,
 which is impossible by the inductive hypothesis.
 \end{proof}
 
+\begin{explain}
+It may be worth pointing out that the unique readability is not something 
+we get for free for any inductively defined system. For example, if in the
+definition of $\Frm[L_0]$ we hadn't used parantheses the ``formula'' $!A 
+\land !B \lor !C$ would have two different parsings corresponding to $(!A 
+\land !B) \lor !C$ and $!A \land (!B \lor !C)$.
+\end{explain}
+
+\begin{explain}
+It is often useful to talk about the !!{formula}s that ``make up'' a
+given !!{formula}.  We call these its \emph{!!{subformula}s}.  Any
+!!{formula} counts as a !!{subformula} of itself; a subformula of $!A$
+other than $!A$ itself is a \emph{proper !!{subformula}}.
+\end{explain}
+
+\begin{defn}[Immediate !!^{subformula}]
+If $!A$ is !!a{formula}, the \emph{immediate !!{subformula}s}
+of $!A$ are defined inductively as follows:
+\begin{enumerate}
+\item Atomic !!{formula}s have no immediate !!{subformula}s.
+
+\tagitem{prvNot}{\indcase{!A}{\lnot !B}{The only immediate
+    !!{subformula} of $\indfrm$ is~$!B$.}}{}
+
+\item \indcase{!A}{(!B \ast !C)}{The immediate !!{subformula}s of
+  $\indfrm$ are $!B$ and $!C$ ($\ast$ is any one of the two-place
+  connectives).}
+
+\end{enumerate}
+\end{defn}
+
+\begin{defn}[Proper !!^{subformula}]
+If $!A$ is !!a{formula}, the \emph{proper !!{subformula}s}
+of $!A$ are recursively as follows:
+\begin{enumerate}
+\item Atomic !!{formula}s have no proper !!{subformula}s.
+
+\tagitem{prvNot}{\indcase{!A}{\lnot !B}{The proper !!{subformula}s of
+    $\indfrm$ are~$!B$ together with all proper !!{subformula}s
+    of~$!B$.}}{}
+
+\item \indcase{!A}{(!B \ast !C)}{The proper !!{subformula}s of
+  $\indfrm$ are $!B$, $!C$, together with all proper !!{subformula}s
+  of $!B$ and those of~$!C$.}
+\end{enumerate}
+\end{defn}
+
+\begin{defn}[!!^{subformula}]
+The !!{subformula}s of $!A$ are $!A$ itself together with all its
+proper !!{subformula}s.
+\end{defn}
+
+The \emph{main connective} of !!a{formula} is the outermost connective of 
+the !!{formula}. We can now define what the \emph{scope} of a connective is.
+
+\begin{defn}[Scope]
+The scope of a connective in !!a{formula} is the !!{subformula}
+for which the connective is the main connective.
+\end{defn}
 
 \begin{defn}[Uniform Substitution]
 If $!A$ and $!B$ are !!{formula}s, and $\Obj p_i$ is a propositional
@@ -101,6 +161,7 @@ $\SSubst{!A}{\subst{!B_1}{\Obj p_1},\dots,\subst{!B_n}{\Obj p_n}}$.
 Give a mathematically rigorous definition of $\Subst{!A}{!B}{p}$ by
 induction.
 \end{prob}
+
 
 \end{document}
 
