@@ -11,8 +11,8 @@
 \olsection{Semantic Notions}
 
 \begin{defn}
-  We say $!A$ is \emph{true in the model $\mModel{M} = \tuple{W,R,V,
-      w_0}$,} $\mSat{M}{!A}$, iff $\mSat{M}{!A}[w]$ for all $w \in W$.
+  We say $!A$ is \emph{true in the model $\mModel{M} = \tuple{W,R,V}$,}
+  $\mSat{M}{!A}$, iff $\mSat{M}{!A}[w]$ for all $w \in W$.
   $!A$ is \emph{valid}, $\Entails !A$, iff it is true in all models.
   We say a set of !!{formula}s~$\Gamma$ \emph{entails}~$!A$, $\Gamma
   \Entails !A$, iff for every model~$\mModel{M}$ and every~$w$ such
@@ -20,6 +20,7 @@
 \end{defn}
 
 \begin{prop}\ollabel{prop:sat-entails}
+
   \begin{enumerate}
   \item\ollabel{prop:sat-entails1} If $\mSat{M}{\Gamma}[w]$ and
     $\Gamma \Entails !A$, then $\mSat{M}{!A}[w]$.
@@ -29,6 +30,7 @@
 \end{prop}
 
 \begin{proof}
+
   \begin{enumerate}
   \item Suppose $\mSat{M}{\Gamma}$. Since $\Gamma \Entails !A$, we
     know that if $\mSat{M}{\Gamma}[w]$, then $\mSat{M}{!A}[w]$. Since
