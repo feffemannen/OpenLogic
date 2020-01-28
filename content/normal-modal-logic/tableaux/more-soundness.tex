@@ -6,7 +6,7 @@
 
 \begin{document}
 
-\olfileid{mod}{tab}{msn}
+\olfileid{nml}{tab}{msn}
       
 \olsection{Soundness for Additional Rules}
 
@@ -36,18 +36,18 @@ that class.
     $\mModel{M}, f$ satisfies $\sFmla{\True}{!B}[\sigma]$.}}{}
 \tagitem{prvDiamond}{The branch is expanded by applying T$\Diamond$ to
   $\sFmla{\False}{\Diamond !B}[\sigma] \in \Gamma$:
-  \iftag{probDiamond}{Exercise.\qedhere}{This results in a new !!{signed
+  \iftag{probDiamond}{Exercise.}{This results in a new !!{signed
       formula}~$\sFmla{\False}{!B}[\sigma]$ on the branch. Suppose
     $\mSat{M}{\Gamma}[f]$, in particular, $\mSat/{M}{\Diamond
       !B}[f(\sigma)]$. Since $R$ is reflexive, we know that
     $Rf(\sigma)f(\sigma)$.  Hence, $\mSat/{M}{!B}[f(\sigma)]$, i.e.,
-    $\mModel{M}, f$ satisfies $\sFmla{\False}{!B}[\sigma]$.\qedhere}}{}
+    $\mModel{M}, f$ satisfies $\sFmla{\False}{!B}[\sigma]$.}}{}
 \end{tagenumerate}
 \end{proof}
 
 \tagprob{probBox,probDiamond}
 \begin{prob}
-  Complete the proof of \olref[mod][tab][msn]{prop:soundness-T}
+  Complete the proof of \olref[nml][tab][msn]{prop:soundness-T}
 \end{prob}
 \tagendprob
 
@@ -73,19 +73,19 @@ that class.
     satisfies $\sFmla{\True}{\Diamond!B}[\sigma]$.}}{}
 \tagitem{prvDiamond}{The branch is expanded by applying D$\Diamond$ to
   $\sFmla{\False}{\Diamond !B}[\sigma] \in \Gamma$:
-  \iftag{probDiamond}{Exercise.\qedhere}{This results in a new !!{signed
+  \iftag{probDiamond}{Exercise.}{This results in a new !!{signed
       formula}~$\sFmla{\False}{\Box !B}[\sigma]$ on the
     branch. Suppose $\mSat{M}{\Gamma}[f]$, in particular,
     $\mSat/{M}{\Diamond !B}[f(\sigma)]$. Since $R$ is serial, there is a $w
     \in W$ such that $Rf(\sigma)w$. Then $\mSat/{M}{!B}[w]$, and hence
     $\mSat/{M}{\Box !B}[f(\sigma)]$.  So, $\mModel{M}, f$
-    satisfies $\sFmla{\False}{\Box!B}[\sigma]$.\qedhere}}{}
+    satisfies $\sFmla{\False}{\Box!B}[\sigma]$.}}{}
 \end{tagenumerate}
 \end{proof}
 
 \tagprob{probBox,probDiamond}
 \begin{prob}
-  Complete the proof of \olref[mod][tab][msn]{prop:soundness-D}
+  Complete the proof of \olref[nml][tab][msn]{prop:soundness-D}
 \end{prob}
 \tagendprob
 
@@ -113,7 +113,7 @@ that class.
     $\sFmla{\True}{!B}[\sigma]$.}}{}
 \tagitem{prvDiamond}{The branch is expanded by applying B$\Diamond$ to
   $\sFmla{\False}{\Diamond !B}[\sigma.n] \in \Gamma$:
-  \iftag{probDiamond}{Exercise.\qedhere}{This results in a new !!{signed
+  \iftag{probDiamond}{Exercise.}{This results in a new !!{signed
       formula}~$\sFmla{\False}{!B}[\sigma]$ on the branch. Suppose
     $\mSat{M}{\Gamma}[f]$, in particular, $\mSat/{M}{\Diamond
       !B}[f(\sigma.n)]$. Since $f$ is an interpretation of prefixes on
@@ -121,13 +121,13 @@ that class.
     $Rf(\sigma)f(\sigma.n)$.  Since $R$ is symmetric,
     $Rf(\sigma.n)f(\sigma)$.  Since $\mSat/{M}{\Diamond !B}[f(\sigma.n)]$,
     $\mSat/{M}{!B}[f(\sigma)]$. Hence, $\mModel{M}, f$ satisfies
-    $\sFmla{\False}{!B}[\sigma]$.\qedhere}}{}
+    $\sFmla{\False}{!B}[\sigma]$.}}{}
 \end{tagenumerate}
 \end{proof}
 
 \tagprob{probBox,probDiamond}
 \begin{prob}
-  Complete the proof of \olref[mod][tab][msn]{prop:soundness-B}
+  Complete the proof of \olref[nml][tab][msn]{prop:soundness-B}
 \end{prob}
 \tagendprob
 
@@ -156,7 +156,7 @@ that class.
     $\mModel{M}, f$ satisfies $\sFmla{\True}{\Box !B}[\sigma.n]$.}}{}
 \tagitem{prvDiamond}{The branch is expanded by applying 4$\Diamond$ to
   $\sFmla{\False}{\Diamond !B}[\sigma] \in \Gamma$:
-  \iftag{probDiamond}{Exercise.\qedhere}{This results in a new !!{signed
+  \iftag{probDiamond}{Exercise.}{This results in a new !!{signed
       formula}~$\sFmla{\False}{\Diamond!B}[\sigma.n]$ on the
     branch. Suppose $\mSat{M}{\Gamma}[f]$, in particular,
     $\mSat/{M}{\Diamond !B}[f(\sigma)]$. Since $f$ is an interpretation of
@@ -165,13 +165,13 @@ that class.
     world such that $Rf(\sigma.n)w$.  Since $R$ is transitive,
     $Rf(\sigma)w$.  Since $\mSat/{M}{\Diamond !B}[f(\sigma)]$,
     $\mSat/{M}{!B}[w]$. Hence, $\mSat/{M}{\Diamond !B}[f(\sigma.n)]$, and
-    $\mModel{M}, f$ satisfies $\sFmla{\False}{\Diamond !B}[\sigma.n]$.\qedhere}}{}
+    $\mModel{M}, f$ satisfies $\sFmla{\False}{\Diamond !B}[\sigma.n]$.}}{}
 \end{tagenumerate}
 \end{proof}
 
 \tagprob{probBox,probDiamond}
 \begin{prob}
-  Complete the proof of \olref[mod][tab][msn]{prop:soundness-4}
+  Complete the proof of \olref[nml][tab][msn]{prop:soundness-4}
 \end{prob}
 \tagendprob
 
@@ -200,7 +200,7 @@ that class.
     $\sFmla{\True}{\Box !B}[\sigma]$.}}{}
 \tagitem{prvDiamond}{The branch is expanded by applying 4r$\Diamond$ to
   $\sFmla{\False}{\Diamond !B}[\sigma.n] \in \Gamma$:
-  \iftag{probDiamond}{Exercise.\qedhere}{This results in a new !!{signed
+  \iftag{probDiamond}{Exercise.}{This results in a new !!{signed
       formula}~$\sFmla{\True}{\Box!B}[\sigma]$ on the branch. Suppose
     $\mSat{M}{\Gamma}[f]$, in particular, $\mSat/{M}{\Diamond
       !B}[f(\sigma.n)]$. Since $f$ is an interpretation of prefixes on
@@ -209,13 +209,13 @@ that class.
     $Rf(\sigma)w$.  Since $R$ is euclidean, $Rf(\sigma.n)w$.  Since
     $\mSat/{M}{\Diamond !B}[f(\sigma).n]$, $\mSat/{M}{!B}[w]$. Hence,
     $\mSat/{M}{\Diamond !B}[f(\sigma)]$, and $\mModel{M}, f$ satisfies
-    $\sFmla{\False}{\Diamond !B}[\sigma]$.\qedhere}}{}
+    $\sFmla{\False}{\Diamond !B}[\sigma]$.}}{}
 \end{tagenumerate}
 \end{proof}
 
 \tagprob{probBox,probDiamond}
 \begin{prob}
-  Complete the proof of \olref[mod][tab][msn]{prop:soundness-4r}
+  Complete the proof of \olref[nml][tab][msn]{prop:soundness-4r}
 \end{prob}
 \tagendprob
 

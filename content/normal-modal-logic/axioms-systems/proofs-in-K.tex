@@ -6,7 +6,7 @@
 
 \begin{document}
 
-\olfileid{mod}{prf}{prk}
+\olfileid{nml}{prf}{prk}
 
 \olsection{Proofs in \Log{K}}
 
@@ -46,15 +46,15 @@ valid !!{formula}s on the left-hand side of
   & \Ax{K} \\
   8. & $\Box(!A \land !B) \lif \Box!B$ & \MP, 6, 7 \\
   9. & $(\Box(!A \land !B) \lif \Box!A) \lif{}$ \\
-  & \qquad $((\Box(!A \land !B) \lif \Box!A) \lif{}$ \\
+  & \qquad $((\Box(!A \land !B) \lif \Box!B) \lif{}$ \\
   & \qquad $(\Box(!A \land !B) \lif (\Box !A \land \Box!B)))$ & \Taut\\
-  10. &  $(\Box(!A \land !B) \lif \Box!A) \lif{}$ \\
+  10. &  $(\Box(!A \land !B) \lif \Box!B) \lif{}$ \\
   & \qquad $(\Box(!A \land !B) \lif (\Box !A \land \Box!B))$ & \MP, 4, 9\\
-  11. & $\Box(!A \land !B) \lif (\Box !A \land \Box!B)$ & \MP, 4, 10.
+  11. & $\Box(!A \land !B) \lif (\Box !A \land \Box!B)$ & \MP, 8, 10.
 \end{derivation}
 Note that the !!{formula} on line~$9$ is an instance of the tautology
 \[
-(p \lif q) \lif ((p \lif r) \lif (p \lif (q \land r))). \qedhere
+(p \lif q) \lif ((p \lif r) \lif (p \lif (q \land r))).
 \]
 \end{proof}
 
@@ -128,7 +128,7 @@ Note that the !!{formula} on line~$9$ is an instance of the tautology
   $\Diamond$ is defined as $\lnot\Box\lnot$.  The !!{formula} on
   line~$5$ is an instance of the tautology
   \[
-    (p \lif q) \lif (\lnot q \lif \lnot p). \qedhere
+    (p \lif q) \lif (\lnot q \lif \lnot p).
   \]
   }}{% Box is defined
   \begin{derivation}
@@ -142,7 +142,7 @@ Note that the !!{formula} on line~$9$ is an instance of the tautology
   The !!{formula} on
   line~$4$ is an instance of the tautology
   \begin{align*}
-    & (p \lif \lnot q) \lif (q \lif \lnot p). \qedhere
+    & (p \lif \lnot q) \lif (q \lif \lnot p).
   \end{align*}
 }
 \end{proof}

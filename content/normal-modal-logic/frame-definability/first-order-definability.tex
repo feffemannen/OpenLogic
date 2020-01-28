@@ -6,7 +6,7 @@
 
 \begin{document}
 
-\olfileid{mod}{frd}{fol}
+\olfileid{nml}{frd}{fol}
 
 \olsection{First-order Definability}
 
@@ -24,7 +24,7 @@ symmetric. This suggests the following definition:
 \begin{defn}
   A class~$\mClass{C}$ of frames is \emph{first-order definable} if there is
   !!a{sentence}~$!A$ in the first-order language with a single
-  two-place !!{predicate}~$P$ such that $\mModel{F} =
+  two-place !!{predicate}~$Q$ such that $\mModel{F} =
   \tuple{W, R} \in \mClass{C}$ iff $\Sat{M}{!A}$ in the first-order
   !!{structure}~$\Struct{M}$ with $\Domain{M} = W$ and $\Assign{Q}{M}
   = R$.
@@ -36,9 +36,9 @@ a first-order definable class of frames, and not every first-order
 definable class of frames is definable by a modal formula.
 
 A counterexample to the first is given by the L\"ob formula:
-\[
+\begin{equation}
 \Box(\Box p \lif p) \lif \Box p. \tag{\Ax{W}}
-\]
+\end{equation}
 \Ax{W} defines the class of transitive and converse well-founded
 frames. A relation is well-founded if there is no infinite sequence
 $w_1$, $w_2$, \dots{} such that $Rw_2w_1$, $Rw_3w_2$, \dots. For

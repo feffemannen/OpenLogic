@@ -106,7 +106,7 @@ as ``Robinson's $\Th{Q}$'' and is a very simple theory of arithmetic.
 \begin{align*}
 & \lforall[x][\lforall[y][(\eq[x'][y'] \lif \eq[x][y])]] \tag{$!Q_1$}\\
 & \lforall[x][\eq/[\Obj 0][x']] \tag{$!Q_2$}\\
-& \lforall[x][(\eq/[x][\Obj 0] \lif \lexists[y][\eq[x][y']])] \tag{$!Q_3$}\\
+& \lforall[x][(\eq[x][\Obj 0] \lor \lexists[y][\eq[x][y']])] \tag{$!Q_3$}\\
 & \lforall[x][\eq[(x + \Obj 0)][x]] \tag{$!Q_4$}\\
 & \lforall[x][\lforall[y][\eq[(x + y')][(x + y)']]] \tag{$!Q_5$}\\
 & \lforall[x][\eq[(x \times \Obj 0)][\Obj 0]] \tag{$!Q_6$}\\
@@ -142,7 +142,8 @@ in~$\Struct{N}$.  $X_A$ is the set of all~$n \in \Nat$ such that
 $\Sat{N}{!A(x)}[s]$ when $s(x) = n$.  The corresponding instance of
 the induction schema is
 \[
-((!A(\Obj 0) \land \lforall[x][(!A(x) \lif !A(x'))]) \lif \lforall[x][!A(x)])
+((!A(\Obj 0) \land \lforall[x][(!A(x) \lif !A(x'))]) \lif 
+  \lforall[x][!A(x)]).
 \]
 If its antecedent is true in~$\Struct{N}$, then $0 \in X_A$ and,
 whenever $n \in X_A$, so is $n+1$.  Since $0 \in X_A$, we get $1 \in
@@ -163,7 +164,7 @@ about~$\Nat$, and it settles all the questions that can be formulated
 in~$\Lang L_A$, since if $!A$ is !!a{sentence} in $\Lang L_A$, then
 either $\Sat{N}{!A}$ or $\Sat{N}{\lnot !A}$, and so either $\Th{TA}
 \Entails !A$ or $\Th{TA} \Entails \lnot !A$.  Call such a theory
-!!{complete}.
+\emph{!!{complete}}.
 
 \begin{defn}
 A theory $\Gamma$ is \emph{!!{complete}} iff for every

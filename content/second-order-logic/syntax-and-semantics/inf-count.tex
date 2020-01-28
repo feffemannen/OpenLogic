@@ -19,7 +19,7 @@ say that the function~$\Assign{f}{M}$ assigned to it in
 \Domain{M}$:
 \[
 \lforall[x][\lforall[y][(\eq[f(x)][f(y)] \to \eq[x][y])]] \land
-\lexists[y][\lforall[x][\eq/[y][f(x)]]]
+\lexists[y][\lforall[x][\eq/[y][f(x)]]].
 \]
 If $\Struct{M}$ satisfies this !!{sentence}, $\Assign{f}{M}:
 \Domain{M} \to \Domain{M}$ is !!{injective}, and so $\Domain{M}$ must
@@ -60,9 +60,9 @@ A set $M$ is !!{enumerable} if there is an enumeration
 \[
 m_0, m_1, m_2, \dots
 \]
-of its !!{element}s (without repetitions).  Such an enumeration exists
+of its !!{element}s (without repetitions but possibly finite).  Such an enumeration exists
 iff there is !!a{element} $z \in M$ and a function $f\colon M \to M$
-such that $z$, $f(z)$, $f(f(z))$ are all the !!{element}s of~$M$. For
+such that $z$, $f(z)$, $f(f(z))$, \dots, are all the !!{element}s of~$M$. For
 if the enumeration exists, $z = m_0$ and $f(m_k) = m_{k+1}$ (or
 $f(m_k) = m_k$ if $m_k$ is the last !!{element} of the enumeration)
 are the requisite !!{element} and function. On the other hand, if such
