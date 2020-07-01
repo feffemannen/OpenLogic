@@ -17,7 +17,7 @@ we would need \emph{third-order} logic.  For instance, if we wanted to
 state Cantor's Theorem that there is no !!{injective} function from
 the power set of a set to the set itself, we might try to formulate it
 as ``for every set~$X$, and every set~$P$, if $P$ is the power set
-of~$X$, then not $\cardle{P}{X}$. And to say that $P$ is the power set
+of~$X$, then not $\cardle{P}{X}$''. And to say that $P$ is the power set
 of~$X$ would require formalizing that the !!{element}s of $P$ are all
 and only the subsets of~$X$, so something like $\lforall[Y][(P(Y)
   \liff Y \subseteq X)]$. The problem lies in $P(Y)$: that is not
@@ -29,7 +29,7 @@ the domain is large enough.  The idea is to make use of the fact that
 two-place relations~$R$ relates !!{element}s of the !!{domain} to
 !!{element}s of the !!{domain}. Given such an~$R$, we can collect all
 the !!{element}s to which some~$x$ is $R$-related: $\Setabs{y \in
-  \Domain{M}}{R(x,y)}$ is the set ``coded by''~$x$.  Converseley, if
+  \Domain{M}}{R(x,y)}$ is the set ``coded by''~$x$.  Conversely, if
 $Z \subseteq \Pow{\Domain{M}}$ is some collection of subsets
 of~$\Domain{M}$, and there are at least as many !!{element}s
 of~$\Domain{M}$ as there are sets in~$Z$, then there is also a
@@ -39,18 +39,22 @@ by some~$x$ using~$R$.
 
 \begin{defn}
 If $R \subseteq \Domain{M}^2$, then \emph{$x$ $R$-codes} $\Setabs{y
-  \in \Domain{M}}{R(x, y)}$. $Y$ $R$-codes $\Pow{X}$ iff for every $Z
-\subseteq X$, some $x \in Y$ $R$-codes~$Y$, and every $x \in Y$
-$R$-codes some~$Y \in Z$.
+  \in \Domain{M}}{R(x, y)}$.
 \end{defn}
 
+If !!a{element}~$x \in \Domain{M}$ $R$-codes a set $Z \subseteq
+\Domain{M}$, then a set $Y \subseteq \Domain{M}$ codes a set of sets,
+namely the sets coded by the !!{element}s of~$Y$.  So a set $Y$ can
+$R$-code $\Pow{X}$. It does so iff for every $Z \subseteq X$, some $x
+\in Y$ $R$-codes~$Z$, and every $x \in Y$ $R$-codes a~$Z \subseteq X$.
+
 \begin{prop}
-  The !!{formula}
+The !!{formula}
   \[
-  \fn{Codes}(x, R, Y) \ident \lforall[y][(Y(y) \liff
+  \fn{Codes}(x, R, Z) \ident \lforall[y][(Z(y) \liff
     R(x, y))]
   \]
-  expresses that $s(x)$ $s(R)$-codes $s(Y)$.  The
+expresses that $s(x)$ $s(R)$-codes $s(Z)$.  The
 !!{formula} 
 \begin{multline*}
   \fn{Pow}(Y, R, X) \ident \\
@@ -58,7 +62,8 @@ $R$-codes some~$Y \in Z$.
     \fn{Codes}(x, R, Z))])] \land {} \\ \lforall[x][(Y(x) \lif
   \lforall[Z][(\fn{Codes}(x, R, Z) \lif Z \subseteq X)]]
 \end{multline*}
-expresses that $s(Y)$ $s(R)$-codes the power set of~$s(X)$.
+expresses that $s(Y)$ $s(R)$-codes the power set of~$s(X)$, i.e., the
+elements of $s(Y)$ $s(R)$-code exactly the subsets of $s(X)$.
 \end{prop}
 
 \begin{explain}
@@ -72,11 +77,10 @@ of any relation that codes the power set of~$X$ to~$X$ itself.
 \begin{prop}
 The sentence
 \begin{multline*}
-  \lforall[X][\lforall[R][(\fn{Pow}(R, X) \lif \\
+  \lforall[X][\lforall[Y][\lforall[R][(\fn{Pow}(Y, R, X) \lif \\
       \lnot \lexists[u][(\lforall[x][\lforall[y][(\eq[u(x)][u(y)] \lif
-            \eq[x][y])]] \land \\
-        \lforall[Y][(\fn{Codes}(x, R, Y) \lif
-        X(u(x)))])])]]
+            \eq[x][y])]] \land {}\\
+        \lforall[x][(Y(x) \lif X(u(x)))])])]]]
 \end{multline*}
 is valid.
 \end{prop}
@@ -84,7 +88,7 @@ is valid.
 \begin{explain}
 The power set of !!a{denumerable} set is !!{nonenumerable}, and so its
 cardinality is larger than that of any !!{denumerable} set (which is
-$\aleph_0$).  The size of $\Pow{\Real}$ is called the ``power of the
+$\aleph_0$).  The size of $\Pow{\Nat}$ is called the ``power of the
 continuum,'' since it is the same size as the points on the real
 number line,~$\Real$. If the !!{domain} is large enough to code the
 power set of !!a{denumerable} set, we can express that a set is the
@@ -96,13 +100,25 @@ with~$\Real$, then there can also be no relation that codes~$\Pow{X}$.)
 
 \begin{prop}
 If $\cardle{\Real}{\Domain{M}}$, then the !!{formula}
-\[
-\fn{Cont}(X) \ident
-\lforall[X][\lforall[Y][\lforall[R][((\fn{Aleph}_0(X) \land
-      \fn{Pow}(Y, R, X)) \lif \lnot \cardle{Y}{X})]]]
-\]
-expresses that $\cardeq{s(X)}{\Real}$.
+\begin{multline*}
+\fn{Cont}(Y) \ident 
+\lexists[X][\lexists[R][((\fn{Aleph}_0(X) \land
+      \fn{Pow}(Y, R, X)) \land \\ 
+      \lforall[x][\lforall[y][((Y(x) \land {} 
+      Y(y) \land \lforall[z][R(x,z) \liff R(y,z)]) \lif \eq[x][y])]])]]
+\end{multline*}
+expresses that $\cardeq{s(Y)}{\Real}$.
 \end{prop}
+
+\begin{proof}
+  $\fn{Pow}(Y, R, X)$ expresses that $s(Y)$ $s(R)$-codes the power set
+  of~$s(X)$, which $\fn{Aleph}_0(X)$ says is countable. So $s(Y)$ is
+  at least as large as the power of the continuum, although it may be
+  larger (if multiple elements of $s(Y)$ code the same subset of~$X$).
+  This is ruled out be the last conjunct, which requires the
+  association between elements of $s(Y)$ and subsets of $s(Z)$ via
+  $s(R)$ to be !!{injective}.
+\end{proof}
 
 \begin{prop}
 $\cardeq{\Domain{M}}{\Real}$ iff
@@ -120,7 +136,7 @@ $\Pow{\Nat}$ has size~$\aleph_1$.
 
 \begin{prop}
 The Continuum Hypothesis is true iff \[\fn{CH} \ident
-\lforall[X][(\fn{Aleph}_1(X) \liff \fn{Cont}(x))]\] is valid.
+\lforall[X][(\fn{Aleph}_1(X) \liff \fn{Cont}(X))]\] is valid.
 \end{prop}
 
 Note that it isn't true that $\lnot \fn{CH}$ is valid iff the
@@ -133,7 +149,7 @@ the Continuum Hypothesis is false:
 \begin{prop}
 The Continuum Hypothesis is false iff \[\fn{NCH} \ident
 \lforall[X][(\fn{Cont}(X) \lif \lexists[Y][(Y \subseteq X \land \lnot
-    \fn{Count}(X) \land \lnot \cardeq{X}{Y})])]\] is valid.
+    \fn{Count}(Y) \land \lnot \cardeq{X}{Y})])]\] is valid.
 \end{prop}
 
 \end{document}
