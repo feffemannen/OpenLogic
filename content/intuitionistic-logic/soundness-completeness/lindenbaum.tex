@@ -13,7 +13,7 @@
 \begin{defn}\ollabel{defn:prime}
   A set of !!{formula}s~$\Gamma$ is \emph{prime} iff 
   \begin{enumerate}
-  \item\ollabel{defn:prime1} $\Gamma$ is consistent.
+  \item\ollabel{defn:prime1} $\Gamma$ is consistent, i.e., $\Gamma \Proves/ \lfalse$
   \item\ollabel{defn:prime2} If $\Gamma \Proves !A$ then $!A \in \Gamma$, and
   \item\ollabel{defn:prime3} If $!A \lor !B \in \Gamma$ then $!A \in
     \Gamma$ or $!B \in \Gamma$.
@@ -106,9 +106,9 @@
   to the assumption that $!B \notin \Gamma^*$ and $!C \notin
   \Gamma^*$.
 
-  Now suppose $\Gamma^* \Proves !A$. Then $\Gamma^* \Proves !A \lor
-  !A$. But we've just proved that if $\Gamma^* \Proves !A \lor !A$
-  then $!A \in \Gamma^*$. Hence, $\Gamma^*$
+  Now suppose $\Gamma^* \Proves !B$. Then $\Gamma^* \Proves !B \lor
+  !B$. But we've just proved that if $\Gamma^* \Proves !B \lor !B$
+  then $!B \in \Gamma^*$. Hence, $\Gamma^*$
   satisfies~\olref{defn:prime2} of \olref{defn:prime}.
 \end{proof}
 
