@@ -28,13 +28,13 @@
 \end{proof}
 
 Observe that the proof of the completeness theorem gives us for 
-every $\Gamma \Proves/ !A$ an infinte tree model witnessing the 
-fact that $\Gamma \Entails/ !A$. The following proposition shows 
+every $\Gamma \Proves/ !A$ a model with an infinite number of worlds 
+witnessing the fact that $\Gamma \Entails/ !A$. The following proposition shows 
 that to prove $\Entails !A$ it is enough to prove that $\mSat{M}{!A}$ 
 for all finite models (i.e., models with a finite set of worlds).
 
 \begin{thm}\ollabel{thm:decidability}
-  If $\Entails/ !A$ then there is a finite model $\mSat/{M}{!A}$.
+  If $\Entails/ !A$ then there is a finite model $\mSat/{M'}{!A}$.
 \end{thm}
 \begin{proof}
   Assume $\mModel{M}=\tuple{W, R, V}$ is such that $\mSat/{M}{!A}$ and $P$ 
@@ -50,7 +50,7 @@ for all finite models (i.e., models with a finite set of worlds).
 \end{proof}
 
 \begin{prob}
-Finish the proof of \olref{thm:decidability} by showing that $\mSat{M,w}{!A}$ iff 
+Finish the proof of \olref[int][sc][cpl]{thm:decidability} by showing that $\mSat{M,w}{!A}$ iff 
 $\mSat{M',[w]}{!A}$ for all formulas $!A$ with only propositional variables from $P$. 
 \end{prob}
 
