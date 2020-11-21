@@ -10,6 +10,12 @@
 
 \olsection{Lindenbaum's Lemma}
 
+The completeness theorem for intuitionistic logic is proved by assuming $\Gamma \Proves/ \varphi$ and construct a model $\mSat{M}{\Gamma}$ and $\mSat/{M}{\varphi}$.
+
+In classical logic the relation of provability can be reduced to the notion of consistency since a formula is deducable from a set of formulas iff the set together with the negation of the formula is inconsistent. This is not possible in intuitionistic logic since RAA is not available. Thus, when constrtucting the model $\mModel{M}$ we wil need to keep track of the non-deducability of the formula $\varphi$ and thus we will not be able to use a full completion of the set $\Gamma$ to build the model $\mModel{M}$, as in every completion $\Gamma^*$ of $\Gamma$ we have $\Gamma^* \Proves \!A \lor \lnot !A$.
+
+Instead of using a completion of $\Gamma$ we willl us the notion of a prime set of formulas:
+
 \begin{defn}\ollabel{defn:prime}
   A set of !!{formula}s~$\Gamma$ is \emph{prime} iff 
   \begin{enumerate}
@@ -111,5 +117,10 @@
   then $!A \in \Gamma^*$. Hence, $\Gamma^*$
   satisfies~\olref{defn:prime2} of \olref{defn:prime}.
 \end{proof}
+
+\begin{prob}
+Show that if $\Gamma \Proves/ \bot$ then $\Gamma$ is conistent in classical logic, i.e., there is a valutaion making all formulas in $\Gamma$ true.
+\end{prob}
+
 
 \end{document}
