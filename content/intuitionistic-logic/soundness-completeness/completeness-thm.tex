@@ -50,10 +50,14 @@ for all finite models (i.e., models with a finite set of worlds).
 \end{proof}
 
 \begin{prob}
-Finish the proof of \olref{thm:decidability} by showing that $\mSat{M,w}{!A}$ iff 
+Finish the proof of \olref[int][sc][cpl]{thm:decidability} by showing that $\mSat{M,w}{!A}$ iff 
 $\mSat{M',[w]}{!A}$ for all formulas $!A$ with only propositional variables from $P$. 
 \end{prob}
 
 From \olref{thm:decidability} it follows that there is an algorithm to decide whether $\Entails !A$.
+
+\begin{prob}
+Show that if $!A$ only contains propositional variables, $\lor$ and $\land$ then $\Entails/ !A$. Use this to conclude that $\lif$ is not definable in intuitionistic logic from $\lor$ and $\land$. 
+\end{prob}
 
 \end{document}
