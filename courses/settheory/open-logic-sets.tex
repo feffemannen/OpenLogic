@@ -1,0 +1,143 @@
+\documentclass[a4paper]{memoir}
+
+
+
+\newcommand{\olpath}{../../}
+\input{\olpath/sty/open-logic.sty}
+\input{\olpath/sty/open-logic-defer.sty}
+\makeatletter\AtBeginDocument{\let\@elt\relax}\makeatother
+
+
+\problemsperchapter
+
+\hypersetup{pdftex,
+  breaklinks,
+  bookmarks,
+  bookmarksopen,
+  bookmarksopenlevel=1,
+  hidelinks}
+  %colorlinks,
+  %urlcolor=dark-gray}
+  %linkcolor=reflex-blue}
+
+
+%\usepackage{enumitem}
+%\setlist{topsep=6pt,itemsep=0pt,parsep=2pt,label={--}} % or \setlist{noitemsep} to leave space around whole list
+
+
+\usepackage{libertine}
+\usepackage[libertine]{newtxmath}
+
+\usepackage{microtype}
+
+%\usepackage{mathpazo}
+%\usepackage[scaled=0.95]{helvet}
+%\linespread{1.05}
+
+% e-book-friendly version:
+%\usepackage[papersize={3.6in,4.8in},hmargin=0.1in,vmargin={0.1in,0.1in}]{geometry}
+
+%\sloppy
+\setlength{\emergencystretch}{4pt}
+
+\begin{document}
+
+% First we make a titlepage
+
+% \begin{titlingpage}
+% \begin{raggedleft}
+% \fontsize{52pt}{2em}\selectfont\bfseries\sffamily
+% Logical\\[.5ex] 
+% Theory
+% \vskip 4ex
+% %\normalfont\Huge\textbf{\href{http://openlogicproject.org/}{Open Logic Project}}
+% %\vskip 1ex
+% \Large\today
+
+% \end{raggedleft}
+
+% \vfill
+
+% \begin{minipage}[b]{.9cm}
+% \includegraphics[width=.9cm]{\olpath/assets/logos/by}
+% \includegraphics[width=.9cm]{\olpath/assets/logos/cc}
+% \includegraphics[width=.9cm]{\olpath/assets/logos/remix}
+% \end{minipage}
+% \hspace{.3cm}
+% \begin{minipage}[b]{6.5cm}
+% \ollicensefont
+% \textit{Logical Theory} is licensed under a
+% \href{http://creativecommons.org/licenses/by/4.0/}{Creative Commons
+%   Attribution 4.0 International License}. It is based on
+% \textit{\href{https://github.com/OpenLogicProject/OpenLogic}{The Open
+%     Logic Text}} by the \href{http://openlogicproject.org/}{Open Logic
+%   Project}, used under a
+% \href{http://creativecommons.org/licenses/by/4.0/}{Creative Commons
+%   Attribution 4.0 International License}, and \textit{\href{http://people.ds.cam.ac.uk/tecb2/metatheory.shtml}{Metatheory}} by Tim Button, also under a \href{http://creativecommons.org/licenses/by/4.0/}{Creative Commons
+%   Attribution 4.0 International License}.
+% \end{minipage}
+% \hfill
+% \href{http://openlogicproject.org/}{\includegraphics[width=2.7cm]{\olpath/assets/logos/openlogic-logo-bw}}
+
+
+% \end{titlingpage}
+
+
+
+
+\olchapter{sfr}{set}{Sets}
+\noindent This text is part of the \textit{Open Logic Text}. It is released under a \href{http://creativecommons.org/licenses/by/4.0/}{Creative Commons
+  Attribution 4.0 International license}. Please see \href{http://openlogicproject.org/}{openlogicproject.org} for
+more information.
+
+This version of the text was compiled on \today.
+
+\olimport*[sets-functions-relations/sets]{basics}
+\olimport*[sets-functions-relations/sets]{subsets}
+\olimport*[sets-functions-relations/sets]{important-sets}
+\olimport*[sets-functions-relations/sets]{unions-and-intersections}
+%\olimport*[sets-functions-relations/sets]{pairs-and-products}
+%\olimport*[sets-functions-relations/sets]{russells-paradox}
+\OLEndChapterHook
+
+
+% \olchapter{sfr}{fun}{Functions}
+% \olimport*[sets-functions-relations/functions]{function-basics}
+% \olimport*[sets-functions-relations/functions]{function-kinds}
+% %\olimport*[sets-functions-relations/functions]{functions-relations}
+% %\olimport*[sets-functions-relations/functions]{inverses}
+% %\olimport*[sets-functions-relations/functions]{composition}
+% %\olimport{isomorphic-functions}
+% %\olimport*[sets-functions-relations/functions]{partial-functions}
+% \OLEndChapterHook
+
+% \olchapter{mth}{prf}{Proofs}
+% \olimport*[methods/proofs]{introduction}
+% \olimport*[methods/proofs]{starting-proofs}
+% \olimport*[methods/proofs]{using-definitions}
+% \olimport*[methods/proofs]{inference-patterns}
+% \olimport*[methods/proofs]{example-1}
+% %\olimport*[methods/proofs]{example-2}
+% \olimport*[methods/proofs]{proof-by-contradiction}
+% \olimport*[methods/proofs]{reading-proofs}
+% \olimport*[methods/proofs]{cant-do-it}
+% \olimport*[methods/proofs]{resources}
+% \OLEndChapterHook
+
+% \olchapter{mth}{ind}{Induction}
+% \olimport*[methods/induction]{introduction}
+% \olimport*[methods/induction]{induction-on-N}
+% %\olimport*[methods/induction]{strong-induction}
+% %\olimport*[methods/induction]{inductive-definitions}
+% %\olimport*[methods/induction]{structural-induction}
+% %\olimport*[methods/induction]{relations}
+% \OLEndChapterHook
+
+%\OLEndPartHook
+
+%\backmatter
+
+%\photocredits
+
+\end{document}
+

@@ -1,0 +1,74 @@
+% For the sample text, let's redefine the logical connectives
+
+%\DeclareDocumentMacro \lnot {\mathord{\neg}}
+
+%\DeclareDocumentMacro \land {\mathbin{\wedge}}
+
+%\DeclareDocumentMacro \lif {\supset}
+
+%\DeclareDocumentMacro \liff {\equiv}
+
+% Set abstracts with a | instead of a :
+
+%\DeclareDocumentCommand \Setabs { m m }{\{ #1 \mid #2 \}}
+
+% let's be pretentious about the plural of formula
+
+%\settexttoken{formula}{formula}{formulae}
+
+%\settexttoken{subformula}{subformula}{subformulae}
+
+\settexttoken{enumerable}{countable}{countable}
+
+\settexttoken{nonenumerable}*{uncountable}{uncountable}
+
+\settexttoken{denumerable}{countably infinite}{countably infinite}
+
+\settexttoken{surjective}{onto}{onto}
+\settexttoken{injective}{one-one}{one-one}
+
+
+\DeclareDocumentCommand \ran { m }{\fn{Range}(#1)}
+
+% make biconditional, verum defined
+
+\tagtrue{defIff,defTrue}
+\tagfalse{prvIff,prvTrue}
+
+% cases for conditional, universal quantifier left to reader
+
+%\tagtrue{probIf,probAll}
+
+% do just natural deduction
+
+\tagtrue{prfND}
+\tagfalse{prfSC,prfAX,prfTab}
+
+\DeclareDocumentCommand \pAssign { m } {#1}
+
+\DeclareDocumentCommand \Obj { m } {#1}
+
+
+\DeclareDocumentCommand \Intro { m } {\ensuremath{{#1}\mathrm{I}}}
+
+\DeclareDocumentCommand \Elim { m } {\ensuremath{{#1}\mathrm{E}}}
+
+% - `\FalseInt`, `\FalseCl`: produces name or abbreviation for
+% intuitionistic and classical absurdity rule, e.g., ``$\bot_I$,''
+% ``$\bot_C$''.
+
+\DeclareDocumentMacro \FalseInt {\ensuremath{\lfalse\mathrm{E}}}
+\DeclareDocumentMacro \FalseCl {\ensuremath{\text{RAA}}}
+
+% - `\Discharge{!A}{n}`: typesets a discharged assumption with label
+% $n$, e.g., $[!A]^n$.
+
+\DeclareDocumentCommand \Discharge { m m }{[#1]^{#2}}
+
+% - `\DischargeRule{Rule}{n}`: used in a `prooftree` environment to
+% provide the labels for an inference that discharges an assumption.
+
+\DeclareDocumentCommand \DischargeRule { m m }{
+  \RightLabel{{#1}\ensuremath{{}_{#2}}}}
+  %\LeftLabel{\scriptsize $#2$}
+%}
