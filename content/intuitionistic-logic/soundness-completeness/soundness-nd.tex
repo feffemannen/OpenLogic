@@ -10,19 +10,10 @@
 
 \olsection{Soundness of Natural Deduction}
 
-We will now prove soundness of natural deduction with regards to the 
-relational semantics, that is, showing that if a formula is deducible from
-a set of assumptions then the set of assumptions entails the formula. Observe that
-when proving that $\Gamma \Entails !A$ we may use the definition
-\begin{itemize}
-  \item for every model~$\mModel{M}$ and every~$w$ such that
-$\mSat{M}{\Gamma}[w]$, $\mSat{M}{!A}[w]$
-\end{itemize}
-or the result of \olref[int][sem][sem]{prop:sat-entails} and  prove
-\begin{itemize}
-  \item if for every model~$\mModel{M}$ such
-  that $\mSat{M}{\Gamma}$, $\mSat{M}{!A}$.
-\end{itemize}
+We will now prove soundness of natural deduction with regards to the
+relational semantics, that is, showing that if !!a{formula} is !!{derivable}
+from a set of assumptions then the set of assumptions entails the
+!!{formula}.
 
 \begin{thm}[Soundness]
   \ollabel{thm:soundness}
@@ -37,8 +28,7 @@ or the result of \olref[int][sem][sem]{prop:sat-entails} and  prove
   \begin{enumerate}
   \item If the !!{derivation} consists of just the assumption~$!A$, we
     have $!A \Proves !A$, and want to show that $!A \Entails !A$.
-    Consider any model $\mModel{M}$ such that $\mSat{M}{!A}$. Then
-    trivially $\mSat{M}{!A}$.
+    Suppose that $\mSat{M}{!A}[w]$. Then trivially $\mSat{M}{!A}[w]$.
 
   \item The derivation ends in $\Intro{\land}$:
     \iftag{probAnd}{Exercise.}{The !!{derivation}s of the premises
@@ -49,18 +39,18 @@ or the result of \olref[int][sem][sem]{prop:sat-entails} and  prove
       show that $\Gamma \cup \Delta \Entails !A \land !B$, since the
       !!{undischarged} assumptions of the entire derivation are
       $\Gamma$ together with $\Delta$.  So suppose $\mSat{M}{\Gamma
-        \cup \Delta}$. Then also $\mSat{M}{\Gamma}$. Since $\Gamma
-      \Entails !B$, $\mSat{M}{!B}$. Similarly, $\mSat{M}{!C}$. So
-      $\mSat{M}{!B \land !C}$.}
+        \cup \Delta}[w]$. Then also $\mSat{M}{\Gamma}[w]$. Since $\Gamma
+      \Entails !B$, $\mSat{M}{!B}[w]$. Similarly, $\mSat{M}{!C}[w]$. So
+      $\mSat{M}{!B \land !C}[w]$.}
 
   \item The !!{derivation} ends in $\Elim{\land}$:
     \iftag{probAnd}{Exercise.}{The !!{derivation} of the premise $!B
         \land !C$ from !!{undischarged} assumptions $\Gamma$ shows
         that $\Gamma \Proves !B \land !C$. By induction hypothesis,
         $\Gamma \Entails !B \land !C$. We have to show that $\Gamma
-        \Entails !B$. So suppose $\mSat{M}{\Gamma}$. Since $\Gamma
-        \Entails !B \land !C$, $\mSat{M}{!B \land !C}$. Then also
-        $\mSat{M}{!B}$. Similarly if $\Elim\land$ ends in~$!C$, then
+        \Entails !B$. So suppose $\mSat{M}{\Gamma}[w]$. Since $\Gamma
+        \Entails !B \land !C$, $\mSat{M}{!B \land !C}[w]$. Then also
+        $\mSat{M}{!B}[w]$. Similarly if $\Elim\land$ ends in~$!C$, then
         $\Gamma \Entails !C$.}
 
   \item The !!{derivation} ends in $\Intro{\lor}$:
@@ -68,9 +58,9 @@ or the result of \olref[int][sem][sem]{prop:sat-entails} and  prove
       !!{undischarged} assumptions of the !!{derivation} ending
       in~$!B$ are $\Gamma$. Then we have $\Gamma \Proves !B$ and by
       inductive hypothesis, $\Gamma \Entails !B$. We have to show that
-      $\Gamma \Entails !B \lor !C$. Suppose $\mSat{M}{\Gamma}$. Since
-      $\Gamma \Entails !B$, $\mSat{M}{!B}$. But then also $\mSat{M}{!B
-        \lor !C}$. Similarly, if the premise is~$!C$, we have that
+      $\Gamma \Entails !B \lor !C$. Suppose $\mSat{M}{\Gamma}[w]$. Since
+      $\Gamma \Entails !B$, $\mSat{M}{!B}[w]$. But then also $\mSat{M}{!B
+        \lor !C}[w]$. Similarly, if the premise is~$!C$, we have that
       $\Gamma \Entails !C$.}
     
   \item The !!{derivation} ends in~$\Elim{\lor}$:
@@ -85,15 +75,15 @@ or the result of \olref[int][sem][sem]{prop:sat-entails} and  prove
       $\Delta_2 \cup \{!C\} \Entails !D$.  We have to prove that
       $\Gamma \cup \Delta_1 \cup \Delta_2 \Entails !D$.
 
-    Suppose $\mSat{M}{\Gamma \cup \Delta_1 \cup \Delta_2}$. Then
-    $\mSat{M}{\Gamma}$ and since $\Gamma \Entails !B \lor !C$,
-    $\mSat{M}{!B \lor !C}$. By definition of $\mSat{M}{}$, either
-    $\mSat{M}{!B}$ or $\mSat{M}{!C}$. So we distinguish cases: (a)
-    $\mSat{M}{!B}$. Then $\mSat{M}{\Delta_1 \cup \{!B\}}$. Since
-    $\Delta_1 \cup !B \Entails !D$, we have $\mSat{M}{!D}$. (b)
-    $\mSat{M}{!C}$. Then $\mSat{M}{\Delta_2 \cup \{!C\}}$. Since
-    $\Delta_2 \cup !C \Entails !D$, we have $\mSat{M}{!D}$. So in
-    either case, $\mSat{M}{!D}$, as we wanted to show.}
+    Suppose $\mSat{M}{\Gamma \cup \Delta_1 \cup \Delta_2}[w]$. Then
+    $\mSat{M}{\Gamma}[w]$ and since $\Gamma \Entails !B \lor !C$,
+    $\mSat{M}{!B \lor !C}[w]$. By definition of $\mSat{M}{}$, either
+    $\mSat{M}{!B}[w]$ or $\mSat{M}{!C}[w]$. So we distinguish cases:
+    (a)~$\mSat{M}{!B}$[w]. Then $\mSat{M}{\Delta_1 \cup \{!B\}}[w]$.
+    Since $\Delta_1 \cup !B \Entails !D$, we have $\mSat{M}{!D}[w]$.
+    (b)~$\mSat{M}{!C}[w]$. Then $\mSat{M}{\Delta_2 \cup \{!C\}}[w]$.
+    Since $\Delta_2 \cup !C \Entails !D$, we have $\mSat{M}{!D}[w]$. So
+    in either case, $\mSat{M}{!D}[w]$, as we wanted to show.}
 
   \item The !!{derivation} ends with $\Intro{\lif}$ concluding~$!B\lif
     !C$. Then the premise is~$!C$, and the !!{derivation} ending in
@@ -151,12 +141,13 @@ or the result of \olref[int][sem][sem]{prop:sat-entails} and  prove
 \end{prob}
 
 \begin{prob}
-Show that the following formulas are not derivable in intuitionistic logic:
-\begin{enumerate}
-  \item $(!A \lif !B) \lor (!B \lif !A)$
-  \item$(\lnot\lnot !A \lif !A) \lif (!A \lor \lnot !A)$
-  \item $(!A \lif !B \lor !C) \lif \bigl((!A \lif !B)\lor(!A \lif !C)\bigr)$
-\end{enumerate}
+  Show that the following !!{formula}s are not !!{derivable} in
+  intuitionistic logic:
+  \begin{enumerate}
+    \item $(!A \lif !B) \lor (!B \lif !A)$
+    \item $(\lnot\lnot !A \lif !A) \lif (!A \lor \lnot !A)$
+    \item $(!A \lif !B \lor !C) \lif \bigl((!A \lif !B)\lor(!A \lif !C)\bigr)$
+  \end{enumerate}
 \end{prob}
 
 \end{document}
